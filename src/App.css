@@ -1,0 +1,55 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#container{
+  border: solid gray;
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 	1000px;
+  height: 800px;
+}
+
+#controles{
+  border-right: solid  blue;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+}
+#funciones{
+  display: flex;
+  width: 70%;
+  padding: 10px;
+  flex-direction: column;
+}
+#crearCliente{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid gray;
+}
+#historial{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid gray;
+}
+
+input{
+  margin: 10px;
+}
+button{
+  margin: 10px;
+  
+}
+button:hover{
+  border-left: solid red;
+  color: red;
+}
+label{
+  margin: 10px;
+}
