@@ -23,6 +23,7 @@
 #funciones{
   display: flex;
   width: 70%;
+  height: 50%;
   padding: 10px;
   flex-direction: column;
 }
