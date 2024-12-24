@@ -51,6 +51,7 @@ function TablaClientes() {
             <table className='table table-striped'>
                 <thead>
                     <tr>
+                        <th>Número de ID</th>
                         <th>Nombre</th>
                         <th>Total Créditos</th>
                         <th>Nuevo Crédito</th>
@@ -60,12 +61,13 @@ function TablaClientes() {
                 <tbody>
                     {clientes.map((item) => (
                         <tr key={item.id}>
+                            <td>{item.id}</td>
                             <td>{item.nombre}</td>
                             <td>${item.montoTotal}</td>
                             <td>
                                 <input 
                                     type="number" 
-                                    value={nuevoCredito[item.id] || ''} // Usa el estado temporal
+                                    value={nuevoCredito[item.id] || ''} 
                                     onChange={(e) => manejarCambioInput(item.id, e.target.value)} 
                                 />
                             </td>

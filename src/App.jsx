@@ -34,9 +34,9 @@ function App() {
       <h1>Gestión Créditos</h1>
       <div id="container">
         <div id="controles">
-          <button className="btn btn-light" onClick={() => setVistaActiva('crearCliente')}>Nuevo Cliente</button>
-          <button className="btn btn-light" onClick={() => setVistaActiva('historial')}>Ver Historial</button>
-          <button className="btn btn-light" onClick={() => { setVistaActiva('verClientes'); mostrarTodos(); }}>Ver Clientes</button>
+          <button class="btn btn-outline-info" onClick={() => setVistaActiva('crearCliente')}>Nuevo Cliente</button>
+          <button class="btn btn-outline-info" onClick={() => setVistaActiva('historial')}>Ver Historial</button>
+          <button class="btn btn-outline-info" onClick={() => { setVistaActiva('verClientes'); mostrarTodos(); }}>Ver Clientes</button>
         </div>
         <div id="funciones">
           {vistaActiva === 'crearCliente' && (

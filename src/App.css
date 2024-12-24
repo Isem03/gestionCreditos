@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #container{
@@ -10,19 +12,20 @@
   padding: 25px;
   display: flex;
   flex-direction: row;
-  width: 	1000px;
+  width: 	fit-content;
   height: 800px;
 }
 
 #controles{
   border-right: solid  blue;
   display: flex;
-  width: 30%;
+  width: fit-content;
   flex-direction: column;
+  background-color:azure;
 }
 #funciones{
   display: flex;
-  width: 70%;
+  width: fit-content;
   height: 50%;
   padding: 10px;
   flex-direction: column;

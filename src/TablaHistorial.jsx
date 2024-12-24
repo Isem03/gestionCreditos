@@ -23,40 +23,50 @@ function TablaHistorial() {
         };
 
         return (
-
             <div>
+              <div>
+                <label>Historial</label>
+                <input
+                  type="text"
+                  placeholder="ID Cliente"
+                  value={idCliente}
+                  onChange={(e) => setIdCliente(e.target.value)}
+                />
+                <button className='btn btn-primary' onClick={fetchHistorial}>Ver Historial</button>
+              </div>
+              {error && <p className="error-message">{error}</p>}
+              {historial.length > 0 ? (
                 <div>
-                    <div>
-                        <label>Historial</label>
-                        <input type="text" placeholder="id  Cliente" id='idCliente' name='idCliente' value={idCliente} onChange={(e) => setIdCliente(e.target.value)} />
-                        <button className="btn btn-primary" onClick={fetchHistorial}>Ver Historial</button>
-                    </div>
-                </div>
-                <table className='table table-striped'>
+                  <p>Nombre Cliente: {historial[0].cliente.nombre}</p>
+                  <p>Crédito Total: ${historial[0].cliente.montoTotal}</p>
+                  <table className='table table-striped'>
                     <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Montos</th>
-                        </tr>
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Montos</th>
+                      </tr>
                     </thead>
                     <tbody>
-                        {historial.map((item) => (
-                            <tr key={item.id}>
-                                <td>{moment(item.fechaHora).format('DD/MM/YYYY HH:mm')}</td>
-                                <td>${item.montoActulizado}-COP</td>
-                            </tr>
-                        ))}
+                      {historial.map((item) => (
+                        <tr key={item.id}>
+                          <td>{moment(item.fechaHora).format('DD/MM/YYYY HH:mm')}</td>
+                          <td>${item.montoActulizado}-COP</td>
+                        </tr>
+                      ))}
                     </tbody>
-                </table>
-                <div>
-                    <input type="number" />
-                    <button className="btn btn-primary">Agregar Crédito</button>
-                    <button className="btn btn-warning">Abonar Crédito</button>
-                    <button className="btn btn-danger">Borrar Crédito</button>
+                  </table>
                 </div>
+              ) : (
+                <p>No se encontró historial para el ID de cliente proporcionado.</p>
+              )}
+              <div>
+                <input type="number" />
+                <button className='btn btn-success'>Agregar Crédito</button>
+                <button className='btn btn-warning'>Abonar Crédito</button>
+                <button className='btn btn-danger'>Borrar Crédito</button>
+              </div>
             </div>
-
-        );
+          );
     
     }
 export default TablaHistorial;
