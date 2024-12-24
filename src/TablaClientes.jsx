@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function TablaClientes() {
     const [clientes, setClientes] = useState([]);
@@ -30,7 +31,7 @@ function TablaClientes() {
 
         axios.put(`http://localhost:8081/guardarCliente/${id}/actualizar-monto?monto=${monto}`, { id, monto })
         .then(response => {
-            const clienteActualizado = response.data; // Asegúrate de que el backend devuelva el cliente actualizado
+            const clienteActualizado = response.data;
             alert(`Crédito agregado exitosamente: ${response.data.message || 'Sin mensaje del servidor'}`);
             
             setClientes((prevClientes) =>
@@ -38,7 +39,7 @@ function TablaClientes() {
                     cliente.id === id ? { ...cliente, montoTotal: clienteActualizado.montoTotal } : cliente
                 )
             );
-            setNuevoCredito((prev) => ({ ...prev, [id]: '' })); // Limpiar el input después de enviar
+            setNuevoCredito((prev) => ({ ...prev, [id]: '' }));
         })
         .catch(error => {
             console.error(error);
