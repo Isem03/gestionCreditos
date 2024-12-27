@@ -54,8 +54,8 @@ function TablaHistorial() {
 
   return (
     <div>
+
       <div id="historial">
-        <label>Historial</label>
         <input
           type="text"
           placeholder="ID Cliente"
@@ -70,7 +70,7 @@ function TablaHistorial() {
       {historial.length > 0 ? (
         <div>
           <p><strong>Nombre Cliente: {historial[0].cliente.nombre}</strong></p>
-          <p><strong>Deuda Total: ${historial[0].cliente.montoTotal}</strong></p>
+          <p style={{ color: 'green' }} className='h3'><strong>Deuda Total: ${historial[0].cliente.montoTotal}</strong></p>
           <div>
           <input
           type="number"
@@ -82,6 +82,7 @@ function TablaHistorial() {
             <button className='btn btn-warning' onClick={abonarCredito}>Abonar Crédito</button>
             <button className='btn btn-danger' onClick={borrarCredito}>Borrar Crédito</button>
           </div>
+          <div style={{ overflowY: 'scroll', height: '400px' }}>
           <table className='table table-striped'>
             <thead>
               <tr>
@@ -92,12 +93,14 @@ function TablaHistorial() {
             <tbody>
               {historial.map((item, index) => (
                 <tr key={index}>
-                  <td>{moment(item.fecha).format('DD/MM/YYYY')}</td>
+                  <td>{moment(item.fechaHora).format('DD/MM/YYYY - h:mm')}</td>
                   <td style={{ color: item.montoActulizado >= 0 ? 'blue' : 'red' }}>{item.montoActulizado}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
+          
         </div>
       ) : (
         <p>No hay historial disponible</p>
